@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  haogege:
+    image: teddysun/xray  # 建议用实际镜像，如 sing-box、xray-core 等
+    container_name: haogege
+    restart: always
+    ports:
+      - "10086:10086"      # 映射端口，按你的 config.json 配置调整
+    volumes:
+      - ./config.json:/etc/xray/config.json   # 左边是本地，右边是容器内路径
+    # environment:
+    #   - TZ=Asia/Shanghai    # 可选，设置时区
